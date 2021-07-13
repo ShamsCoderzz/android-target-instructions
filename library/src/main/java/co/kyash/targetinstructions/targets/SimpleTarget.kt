@@ -148,7 +148,8 @@ class SimpleTarget(
                 val messageView = LayoutInflater.from(context).inflate(messageLayoutResId, null).apply {
                     layoutParams = FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT)
                     (findViewById<TextView>(R.id.title)).text = title
-                    (findViewById<TextView>(R.id.description)).text = description
+                    if (this::description.isInitialized)  (findViewById<TextView>(R.id.description)).text = description
+                     
                 }
 
                 return SimpleTarget(
